@@ -8,11 +8,11 @@ function PageNav(props){
     const { uid, isRequesting } = useSelector(state => (state.user.userAuth))
     const dispatch=useDispatch();
     
-    // useEffect(() => {
-    //     if (uid) {
-    //         dispatch(getUserData(uid));
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (uid) {
+            dispatch(getUserData(uid));
+        }
+    }, [])
 
 	return(
         <nav className="navbar navbar-expand-sm  profil-navs bg-dark">
