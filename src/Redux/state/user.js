@@ -7,9 +7,9 @@ export default{
     userAuth:{
         isRequesting: false,
         error: null,
-        isActive: true,
+        isActive: false,
         uid: null,
     },
-    errorMsg:"",
     start:false,
+    startImg:false
 }

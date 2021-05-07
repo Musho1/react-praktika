@@ -23,9 +23,7 @@ function ProfilReducer(state=user,action){
         }
         case "successEnd":{
             temp.userAuth.isActive=false
-            console.log("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"+temp)
             Redirect("/")
-            alert("sssss")
         }
         default:
             break

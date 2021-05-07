@@ -5,17 +5,14 @@ import Profile from '../loginSignUp/Profile';
 import {BrowserRouter, Switch, Route,Redirect} from "react-router-dom";
 import { useSelector } from "react-redux";
 function Routs(){
-    const {isActive}=useSelector(state=>{return(state.user.userAuth)})
+    const {isActive, isRequesting }=useSelector(state=>{return(state.user.userAuth)})
     const PrivateRoute=(props) => {
         if(isActive){
-            console.log(isActive+"ssssssssssssss")
+            console.log(isActive)
             return(<Route path={props.path} component={props.component} />)
         }
         else {
-            return(
-            <Route>
-                <Redirect  to="/"/>
-            </Route>)
+            return <Redirect  to="/"/>
         }
     }
  return (

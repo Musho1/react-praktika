@@ -1,0 +1,62 @@
+.imgButton{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgButton {
+    width: 100px;
+    overflow: hidden;
+    position: absolute;    
+    text-decoration: none;
+    border:none;
+    
+  }
+  .file {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+  }
+  .file-input label {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 25px;
+  background: linear-gradient(40deg, #ff6ec4, #7873f5);
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  color: #fff;
+  text-align: center;
+  right: 4px;
+  bottom: -7px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s ease-out;
+}
+.btn_div{
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
+    align-items: center;
+    margin: auto;
+    z-index: 999;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}  
+.img{
+    width: 203px;
+    position: relative;
+    height: 203px;
+    overflow: hidden;
+}
+img{
+    width: 100%;
+    position: absolute;
+    height: 100%;
+}

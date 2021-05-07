@@ -15,7 +15,7 @@ function Singup(props){
         Age:{value:"", errorMsg:'', errorBorder:true},
     })
     const [errorMsg,setErrorMsg]=useState("")
-    const [sendUser,setSendUser]=useState({name:"",surname:"",age:"",password:"",email:""})
+    const [sendUser,setSendUser]=useState({name:"",surname:"",age:"",password:"",email:"", avatar: ""})
     const [start,setStart]=useState(false)
     const Save=function(user) { 
         Object.values(user).map((elm,i)=>{
@@ -42,7 +42,7 @@ function Singup(props){
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
 
-    const validationName=function(temp,i,value){
+    const validationName=function(temp,i){
         let item={...user}
         if(i===0 && temp===""){
             item.Email.errorMsg="The Email is not filled in"
@@ -110,7 +110,7 @@ function Singup(props){
             item.Age.value=temp
             setSendUser({...sendUser,age:temp})
         }
-        setUser(item)
+        setUser({...item})
     }
     return(
         <div>

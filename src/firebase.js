@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-
+import { getStorage, ref } from "firebase/storage";
 var firebaseConfig = {
   apiKey: "AIzaSyA48ncocujbiJx0kjMBeY58KHvEaZWqXxk",
   authDomain: "praktika-8350c.firebaseapp.com",
@@ -11,7 +11,7 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
+let storage = firebase.storage().ref(`images/`)
 const db=firebase.database();
 
-export {firebase,db}
+export {firebase,db,storage}

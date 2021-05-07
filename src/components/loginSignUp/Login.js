@@ -5,7 +5,7 @@ import SignNav from "../navs/SignNav";
 import { useHistory } from "react-router-dom"
 import {useSelector} from 'react-redux'
 function Login(props){
-    const [users,setUser]=useState({Email:"",Password:"",login:false})
+    const [users,setUser]=useState({Email:"",Password:"",login:false,photo:""})
     const history = useHistory();
     const dispatch = useDispatch()
     const {start}=useSelector(state=>{return(state.profil)})
@@ -26,7 +26,7 @@ function Login(props){
                         </div>
                         <br></br>
                         <div className="form-grup">
-                            <button className="btn btn-sm btn-success" disabled={start} onClick={()=> dispatch(logIn(users.Email,users.Password, history))} >
+                            <button className="btn btn-sm btn-success" disabled={start} onClick={()=> dispatch(logIn(users.Email,users.Password, history,users.photo))} >
                                 Login 
                                 {start ?<div className="spinner-border text-danger spinner-border-sm"  role="status">
                                             <span className="sr-only">Loading...</span>

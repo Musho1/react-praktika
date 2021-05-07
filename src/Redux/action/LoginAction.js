@@ -35,7 +35,6 @@ export const LogOut = ()=> {
         dispatch(startSingOut)
         firebase.auth().signOut()
             .then(()=>{
-                 console.log("success")
                  dispatch(successEnd)
             })
             .catch((error) =>{console.log(error)})
@@ -43,13 +42,12 @@ export const LogOut = ()=> {
 }
 
 
-export const logIn = (email, password, history)=> {
+export const logIn = (email, password, history,photo)=> {
     return function (dispatch) {
         dispatch(startLogIn());
         firebase.auth().signInWithEmailAndPassword(email,password)
             .then(user=>{
                 dispatch(successLogIn(user))
-                console.log(user)
                 user=(user.user.value)
                 history.push("/profile");
             })

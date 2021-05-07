@@ -50,11 +50,32 @@ function UserReducer(state=user, action) {
             isFetching: false,
             data: action.data,
         }
-        temp.userAuth = {
-            ...temp.userAuth,
-            isActive: true,
-        }
+
     }
+    if(action.type==="endChangeAvatar"){
+        temp.user.data.Avatar=action.value
+        console.log(action.value)
+    }
+    if(action.type==="lastAvatar"){
+        temp.user.data.Avatar=action.value
+    }
+    if(action.type==="ChangeAvatar"){
+        temp.user.data.avatar=action.value
+    }
+    if(action.type==="changeImg"){
+        temp.user.data.avatar=URL.createObjectURL(action.value)
+    }
+    if(action.type==="closeImg"){
+        temp.user.data.avatar=action.value
+    }
+    if(action.type==="StartChangeImg"){
+        temp.startImg=true
+    }
+    if(action.type==="successChangeImg"){
+        temp.startImg=false
+    }
+
+
     return temp
 }
 export default UserReducer
