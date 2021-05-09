@@ -63,16 +63,23 @@ function UserReducer(state=user, action) {
         temp.user.data.avatar=action.value
     }
     if(action.type==="changeImg"){
+        temp.avatar=temp.user.data.avatar
         temp.user.data.avatar=URL.createObjectURL(action.value)
     }
-    if(action.type==="closeImg"){
+    if(action.type==="lastAvatar"){
+
+        console.log(action.value)
         temp.user.data.avatar=action.value
     }
+    
     if(action.type==="StartChangeImg"){
         temp.startImg=true
     }
     if(action.type==="successChangeImg"){
         temp.startImg=false
+    }
+    if(action.type==="Loading"){
+        temp.loading=action.value
     }
 
 

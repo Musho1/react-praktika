@@ -23,7 +23,6 @@ function Singup(props){
                setSend(false)
            }
         })
-        console.log(send)
         if(send){
             firebase.auth().createUserWithEmailAndPassword(user.Email.value,user.Password.value)
             .then(Response=>{
@@ -148,7 +147,7 @@ function Singup(props){
                     <button disabled={start} className="btn btn-success btn-sm" onClick={()=>Save(user)}>
                         Sign up
                         {start ?<div className="spinner-border text-danger spinner-border-sm" role="status">
-                                            <span class="sr-only">Loading...</span>
+                                            <span className="sr-only">Loading...</span>
                         </div>:<div></div>}
                     </button>
                 </div>

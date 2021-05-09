@@ -1,6 +1,7 @@
 import firebase from 'firebase'
 import {db} from '../../firebase';
-import user from '../state/user';
+
+
 const startCheckUser = () => {
     return {
         type:"startCheckUser",
@@ -22,7 +23,6 @@ export const isActiv = () => {
     }
 }
 
-
 const startGetUserData = () => {
     return {
         type: "startGetUserData"
@@ -42,6 +42,7 @@ const endGetUserData = (data) => {
     }
 }
 const ChangeAvatar=(url)=>{
+    
     return{
         type:"ChangeAvatar",
         value:url
@@ -53,24 +54,18 @@ export const getUserData = (uid) => {
     return function(dispatch) {
         dispatch(startGetUserData());
         db.ref(`/user/${uid}`).on('value', (userData) => {
-           
             dispatch(endGetUserData(userData.val()))
-         firebase.storage().ref().child(`images/${uid}`).getDownloadURL().then(function(url) 
-        {
-            
+         firebase.storage().ref().child(`images/${uid}`).getDownloadURL()
+         .then(function(url) 
+         {
+            db.ref(`/user/${uid}/avatar`).set(url)
             dispatch(ChangeAvatar(url))
-        })
+            console.log(url)
+         })
         .catch((error)=>console.log(error))
     })
     }
 } 
-const endChangeAvatar=(user)=>{
-    return {
-        type:"endChangeAvatar",
-        value:user
-    }
-}
-
 const StartChangeImg=()=>{
     return{
         type:"StartChangeImg"
@@ -81,17 +76,30 @@ const successChangeImg =()=>{
         type:"successChangeImg"
     }
 }
-export const saveImg=(elm,uid)=>{
-    console.log(uid)
+const Loading=(Loading)=>{
+    return{
+        type:"Loading",
+        value:Loading
+    }
+}
+export const saveImg=(elm,uid,loading)=>{
     return (dispatch)=>{
         dispatch(StartChangeImg())
         let fileName = uid
-        let storage = firebase.storage().ref(`images/`).child(fileName).put(elm)
-                .then( d =>{
-                   dispatch(successChangeImg())
-                })
-                .catch( d => console.log("sssssss"))
-    }
+        const storage=(firebase.storage().ref(`images/`).child(fileName).put(elm))
+        storage.on(
+            'state_changed',
+            (snapShot) =>{
+                const percentUploaded = Math.round((snapShot.bytesTransferred / snapShot.totalBytes) * 100);
+                dispatch(Loading(percentUploaded))
+                console.log(snapShot)
+                console.log(percentUploaded)
+            }
+            
+        )
+        
+        
+     }
 }
 export const changeImg=(elm)=>{
     return {
@@ -99,9 +107,9 @@ export const changeImg=(elm)=>{
         value:elm,
     }
 }
-export const closeImg=(elm,url)=>{
+export const closeImg=(elm)=>{
     return {
         type:"lastAvatar",
-        value:url
+        value:elm
     }
 }

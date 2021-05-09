@@ -11,5 +11,8 @@ export default{
         uid: null,
     },
     start:false,
-    startImg:false
+    startImg:false,
+    loading:-1,
+    avatar:"",
+    isLod:false,
 }
