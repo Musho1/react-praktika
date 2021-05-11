@@ -9,10 +9,6 @@ function Onloade(){
           setLoaded(false)
       }
     }
-    useEffect(()=>{
-        onLoad()
-    })
-    {console.log("loadingq")}
     return loaded? <img onLoad={onLoad} src="http://beepeers.com/assets/images/commerces/default-image.jpg" /> :""
 }
 export default Onloade

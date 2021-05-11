@@ -32,11 +32,11 @@ function Slider(active){
         }
         setIndex(a)
     }
-    return(<div className="slider" >
+    return(<div className="slider">
        <div className="activimg">
         <div>
             <img  className="active" src={sliderPhotos[index].photo} />
-            <p className="title">{sliderPhotos[index].title}</p>
+            <p className="title1">{sliderPhotos[index].title}</p>
         </div>
         <div className="NextPrev">
             <button className="btn btn-sm btn-success" onClick={()=>(prev(index))}>Prev</button>

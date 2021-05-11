@@ -78,7 +78,7 @@ function UserReducer(state=user, action) {
     if(action.type==="successChangeImg"){
         temp.startImg=false
     }
-    if(action.type==="Loading"){
+    if(action.type==="LoadingAvatar"){
         temp.loading=action.value
     }
 

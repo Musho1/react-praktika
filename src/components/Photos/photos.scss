@@ -61,6 +61,7 @@
 .opaciti{
     opacity: 0.1;
 }
+.fileDiv{
 .file {
     opacity: 0;
     width: 0.1px;
@@ -85,3 +86,4 @@
     cursor: pointer;
     transition: transform .2s ease-out;
   }
+}

@@ -10,7 +10,6 @@ function Photos(){
     const {data} = useSelector(state => state.user.user)
     const {loading}=useSelector(state=>state.photo)
     const {sliderPhotos}=useSelector(state=>(state.slider))
-    const {sliderTitle}=useSelector(state=>(state.slider))
     const [showLoading,setShowLoading]=useState(false)
     const [slider,setSlider]=useState(false)
     const [imges,setImages]=useState("")
@@ -43,13 +42,15 @@ function Photos(){
 		}
     })
     return(<div>
-        <PageNav />
+        <PageNav/>
         {slider? <Slider active={active} /> :""}
         <div  className={slider?"opaciti":""} onClick={()=>setSlider(false)}>
             <h1 className="text-center">Photos</h1>
-            <div class="file-input">
-                <input type="file" id="file" class="file" onChange={(e)=>setShowPhoto(e.target.files[0])}/>
-                <label for="file">Select file</label>
+            <div className="fileDiv">
+                <div class="file-input">
+                    <input type="file" id="file" class="file" onChange={(e)=>setShowPhoto(e.target.files[0])}/>
+                    <label for="file">Select file</label>
+                </div>
             </div>    
                 {
                     showLoading?<progress value={loading} max="100"></progress>:""
@@ -60,7 +61,9 @@ function Photos(){
                     <input className="form-control input"  placeholder="Title" onChange={(e)=>setTitle(e.target.value)}/>
                     <div className="showBtn">
                         <button className="btn btn-sm btn-success" onClick={()=>dispatch(SavePhoto(data.uid,showPhoto,title))}>Save</button>
-                        <button className="btn btn-sm btn-danger" onClick={()=>{setShowPhoto(false)}}>Close</button>
+                        <button className="btn btn-sm btn-danger" onClick={()=>{
+                            setShowPhoto(false)
+                            }}>Close</button>
                     </div>
                     </div>
                 </div>:""

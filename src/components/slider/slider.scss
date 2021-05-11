@@ -39,6 +39,9 @@
     align-items: center;
     padding: 35px;
 }
+.listdiv img{
+    z-index: 999;
+}
 }
 .activimg{
     width: 700px;
@@ -48,7 +51,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 500px;
+    // height: 500px;
+}
+.NextPrev button{
+    z-index: 999;
 }
 .title1{
     text-align: center;

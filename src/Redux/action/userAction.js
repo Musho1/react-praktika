@@ -78,7 +78,7 @@ const successChangeImg =()=>{
 }
 const Loading=(Loading)=>{
     return{
-        type:"Loading",
+        type:"LoadingAvatar",
         value:Loading
     }
 }

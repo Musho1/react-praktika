@@ -9,6 +9,7 @@ import {saveImg} from "../../Redux/action/userAction"
 import {closeImg} from "../../Redux/action/userAction"
 import "./profile.scss" 
 import Onloade from '../loading/onLoade';
+import Setting from '../setting/setting';
 
 function Profile() {
 	const {data,isFetching} = useSelector(state => state.user.user)
@@ -19,20 +20,18 @@ function Profile() {
 	const [startImg,setStartImg]=useState(false)
 	const dispatch=useDispatch()
 	useEffect(()=>{
-		dispatch(closeImg) 
-		dispatch(changeImg)
 		if(loading==0){
 			setStartImg(true)
 		}
 		if(loading===100){
 			setStartImg(false)
 		}
-	})
+	},[])
 	return(
 	<div>
 		{isFetching?<Loading />:<div>
 			<PageNav />
-			<div>
+			<div className="profil">
 				<div className="form-grup userPage">
 				{startImg? 
 					<div>
@@ -63,6 +62,10 @@ function Profile() {
 					{<p className="text-center">{data.name}</p>}
 					 <p className="text-center">{data.surname}</p> 
 				</div>
+			<div>
+				<Setting />
+			</div>
+
 			</div>
 		</div>}	
 	</div>

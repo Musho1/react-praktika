@@ -30,7 +30,6 @@ function Login(props){
                                 Login 
                                 {start ?<div class="lds-facebook"><div></div><div></div><div></div></div>:<div></div>}
                             </button>
-                        
                         </div>
                         <br></br>
                 </div>

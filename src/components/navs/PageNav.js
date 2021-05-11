@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch } from 'react-redux';
 import {LogOut } from "../../Redux/action/LoginAction";
 import { getUserData } from "../../Redux/action/userAction";
 import {useSelector} from 'react-redux'
+import { SettingActive } from '../../Redux/action/settingAction';
 function PageNav(props){
     const { uid} = useSelector(state => (state.user.userAuth))
-   const {photos}= useSelector(state=>(state.photo))
-    
     const dispatch=useDispatch();
     
     useEffect(() => {
@@ -27,6 +26,9 @@ function PageNav(props){
                 </li>
             </ul>
             <ul className="navbar-nav px-4" >
+                <li  className="nav-item">
+                    <Link className="nav-link text-white text-right "  onClick={()=>dispatch(SettingActive())} ><i class="fa fa-cog" aria-hidden="true"></i></Link>
+                </li>
                 <li className="nav-item">
                     <Link className="nav-link text-white text-right " to="/singout" onClick={()=>dispatch(LogOut())}>sign out</Link>
                 </li>
