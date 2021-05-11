@@ -8,6 +8,7 @@ import {changeImg} from "../../Redux/action/userAction"
 import {saveImg} from "../../Redux/action/userAction"
 import {closeImg} from "../../Redux/action/userAction"
 import "./profile.scss" 
+import Onloade from '../loading/onLoade';
 
 function Profile() {
 	const {data,isFetching} = useSelector(state => state.user.user)
@@ -18,9 +19,7 @@ function Profile() {
 	const [startImg,setStartImg]=useState(false)
 	const dispatch=useDispatch()
 	useEffect(()=>{
-		console.log(data.avatar+"///////////////////")
-		 console.log(avatar)
-		 dispatch(closeImg) 
+		dispatch(closeImg) 
 		dispatch(changeImg)
 		if(loading==0){
 			setStartImg(true)
@@ -41,10 +40,10 @@ function Profile() {
 					</div>:""
 				}
 				     <div className="img">
-						 
+						 <Onloade/>
 						<img src={data.avatar?data.avatar:"https://html5css.ru/w3css/img_avatar3.png"} className="avatar"></img>
 						<div className="file-input">
-						<input type="file" accept="image/x-png,image/jpeg"   id="file" class="file" onChange={(e)=>{
+						<input type="file" accept="image/x-png,image/jpeg"   id="file" className="file" onChange={(e)=>{
 							setImg(e.target.files[0])
 							setBtn(true)
 							return dispatch(changeImg(e.target.files[0]))}}/>

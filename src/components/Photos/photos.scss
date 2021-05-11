@@ -1,0 +1,42 @@
+.photos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+}
+.showImg{
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+.showBtn{
+    display: flex;
+    justify-content: space-around;
+}
+.ImgDiv{
+    display: flex;
+}
+.images{
+    width: 210px;
+    height: 250px;
+    position: relative;
+    margin:auto;
+    margin-top: 5px;
+}
+.Border{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:30px;
+    width: 220px;
+    height: 270px;
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.title{
+    text-align: center;
+    padding: 10px;
+}
+.Border:hover {
+    box-shadow: 0 0 2px 3px rgba(0, 140, 186, 0.5);
+  }

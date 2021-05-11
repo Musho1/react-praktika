@@ -82,18 +82,15 @@ const Loading=(Loading)=>{
         value:Loading
     }
 }
-export const saveImg=(elm,uid,loading)=>{
+export const saveImg=(elm,uid)=>{
     return (dispatch)=>{
         dispatch(StartChangeImg())
-        let fileName = uid
-        const storage=(firebase.storage().ref(`images/`).child(fileName).put(elm))
+        const storage=(firebase.storage().ref(`images/`).child(uid).put(elm))
         storage.on(
             'state_changed',
             (snapShot) =>{
                 const percentUploaded = Math.round((snapShot.bytesTransferred / snapShot.totalBytes) * 100);
                 dispatch(Loading(percentUploaded))
-                console.log(snapShot)
-                console.log(percentUploaded)
             }
             
         )

@@ -5,7 +5,9 @@ import {LogOut } from "../../Redux/action/LoginAction";
 import { getUserData } from "../../Redux/action/userAction";
 import {useSelector} from 'react-redux'
 function PageNav(props){
-    const { uid, isRequesting } = useSelector(state => (state.user.userAuth))
+    const { uid} = useSelector(state => (state.user.userAuth))
+   const {photos}= useSelector(state=>(state.photo))
+    
     const dispatch=useDispatch();
     
     useEffect(() => {
@@ -19,6 +21,9 @@ function PageNav(props){
             <ul className="navbar-nav px-4" >
                 <li className="nav-item">
                     <Link className="nav-link text-white text-right " to="/profile">Page</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link text-white text-right " to="/photos">Photos</Link>
                 </li>
             </ul>
             <ul className="navbar-nav px-4" >
