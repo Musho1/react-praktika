@@ -28,7 +28,7 @@ function Login(props){
                         <div className="form-grup">
                             <button className="btn btn-sm btn-success" disabled={start} onClick={()=> dispatch(logIn(users.Email,users.Password, history,users.photo))} >
                                 Login 
-                                {start ?<div class="lds-facebook"><div></div><div></div><div></div></div>:<div></div>}
+                                {start ?<div className="lds-facebook"><div></div><div></div><div></div></div>:<div></div>}
                             </button>
                         </div>
                         <br></br>
@@ -36,5 +36,4 @@ function Login(props){
                </div> 
         </div>)
 }
-
 export default connect(r=>r)(Login)

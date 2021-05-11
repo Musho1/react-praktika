@@ -10,7 +10,6 @@ import {closeImg} from "../../Redux/action/userAction"
 import "./profile.scss" 
 import Onloade from '../loading/onLoade';
 import Setting from '../setting/setting';
-
 function Profile() {
 	const {data,isFetching} = useSelector(state => state.user.user)
 	const {loading}=useSelector(state=>state.user)
@@ -45,7 +44,7 @@ function Profile() {
 						<input type="file" accept="image/x-png,image/jpeg"   id="file" className="file" onChange={(e)=>{
 							setImg(e.target.files[0])
 							setBtn(true)
-							return dispatch(changeImg(e.target.files[0]))}}/>
+							dispatch(changeImg(e.target.files[0]))}}/>
 						 <label for="file">+</label>
 					</div>
 					{btn?	

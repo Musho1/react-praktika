@@ -9,10 +9,10 @@ function SettingReducer(state=setting,action){
         temp.start=true
     }
     if(action.type=="endUpdateProfile"){
-        temp.state=false
+        temp.start=false
     }
     if(action.type=="SettingActive"){
-        temp.active=true
+        temp.active=action.value
     }
     return (temp)
 }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Next } from "../../Redux/action/sliderAction"
 import "./slider.scss"
 function Slider(active){
     const dispatch=useDispatch()
@@ -45,7 +44,7 @@ function Slider(active){
         <div className="Listdiv">
             {
                 sliderPhotos.map((elm,i)=>{
-                    return (<div className="listdiv">
+                    return (<div key={i} className="listdiv">
                        <img className="list" src={elm.photo} onClick={()=>setIndex(i)} ></img>
                     </div>)
                 })

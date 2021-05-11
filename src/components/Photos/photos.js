@@ -4,42 +4,29 @@ import PageNav from "../navs/PageNav"
 import {SavePhoto} from "../../Redux/action/photosAction"
 import "./photos.scss"
 import Slider from "../slider/slider"
+import {AddDiv} from "../../Redux/action/photosAction"
 function Photos(){
+    const dispatch=useDispatch()
     const [showPhoto,setShowPhoto]=useState("")
-    const [show,setShow]=useState(false)
+    const {addDiv}=useSelector(state=>state.photo)
     const {data} = useSelector(state => state.user.user)
-    const {loading}=useSelector(state=>state.photo)
     const {sliderPhotos}=useSelector(state=>(state.slider))
-    const [showLoading,setShowLoading]=useState(false)
+    const [showDiv,setShowDiv]=useState(false)
     const [slider,setSlider]=useState(false)
     const [imges,setImages]=useState("")
     const [title,setTitle]=useState("")
     const [active,setActive]=useState("")
-    const dispatch=useDispatch()
     useEffect(()=>{
-        
         if(data.photos==undefined){
             setImages(false)
         }
         else{
             setImages(true)
         }
-        if(showPhoto!="" && loading!==100){
-            setShow(true)
+        if(!addDiv){
+            setShowDiv(false)
         }
-        else if(loading==100){
-            setShow(false)
-        }
-        else {
-            setShow(false)
-        }
-        if(loading===0){
-			setShowLoading(true)
-		}
-		if(loading===100){
-			setShowLoading(false)
-            setShow(false)
-		}
+
     })
     return(<div>
         <PageNav/>
@@ -47,15 +34,17 @@ function Photos(){
         <div  className={slider?"opaciti":""} onClick={()=>setSlider(false)}>
             <h1 className="text-center">Photos</h1>
             <div className="fileDiv">
-                <div class="file-input">
-                    <input type="file" id="file" class="file" onChange={(e)=>setShowPhoto(e.target.files[0])}/>
+                <div className="file-input">
+                    <input type="file" id="file" class="file" onChange={(e)=>{
+                        setShowPhoto(e.target.files[0])
+                        setShowDiv(true)
+                        dispatch(AddDiv())
+                    }
+                    }/>
                     <label for="file">Select file</label>
                 </div>
             </div>    
-                {
-                    showLoading?<progress value={loading} max="100"></progress>:""
-                }
-            {show?<div className="addphoto">
+            {showDiv?<div className="addphoto">
                     <img src={showPhoto?URL.createObjectURL(showPhoto):""} className="showImg"/>
                     <div>
                     <input className="form-control input"  placeholder="Title" onChange={(e)=>setTitle(e.target.value)}/>
@@ -63,12 +52,13 @@ function Photos(){
                         <button className="btn btn-sm btn-success" onClick={()=>dispatch(SavePhoto(data.uid,showPhoto,title))}>Save</button>
                         <button className="btn btn-sm btn-danger" onClick={()=>{
                             setShowPhoto(false)
+                            setShowDiv(false)
                             }}>Close</button>
                     </div>
                     </div>
                 </div>:""
             }
-        <div className="ImgDiv" class="col-md-12 row">  
+        <div className="ImgDiv" className="col-md-12 row">  
             {  imges? 
                 
                 Object.values(data.photos).map((elm,i)=>{

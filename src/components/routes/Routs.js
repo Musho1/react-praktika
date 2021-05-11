@@ -8,7 +8,6 @@ import Photos from "../Photos/photos";
 function Routs(){
     const {isActive}=useSelector(state=>{return(state.user.userAuth)})
     const PrivateRoute=(props) => {
-        console.log(props)
         if(isActive && props.path=="/photos"){
            
             return(<Route path={props.path} component={props.component} />)

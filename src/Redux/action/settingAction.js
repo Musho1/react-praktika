@@ -31,8 +31,10 @@ export const Save=(data,uid)=>{
         })
     }
 }
-export const SettingActive=()=>{
+export const SettingActive=(bool,index)=>{
     return {
-        type:"SettingActive"
+        type:"SettingActive",
+        value:bool,
+        index:index
 }
 }
