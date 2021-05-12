@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import PageNav from '../navs/PageNav';
 import {useSelector} from 'react-redux'
 import Loading from '../loading/Loading';
@@ -10,6 +9,10 @@ import {closeImg} from "../../Redux/action/userAction"
 import "./profile.scss" 
 import Onloade from '../loading/onLoade';
 import Setting from '../setting/setting';
+import UserPage from '../userpage/userPage';
+import { useLocation, useParams } from 'react-router-dom';
+
+
 function Profile() {
 	const {data,isFetching} = useSelector(state => state.user.user)
 	const {loading}=useSelector(state=>state.user)
@@ -17,17 +20,20 @@ function Profile() {
 	const [img,setImg]=useState('')
 	const [btn,setBtn]=useState(false)
 	const [startImg,setStartImg]=useState(false)
-	const dispatch=useDispatch()
-	useEffect(()=>{
-		if(loading==0){
-			setStartImg(true)
-		}
-		if(loading===100){
-			setStartImg(false)
-		}
-	},[])
+	const dispatch=useDispatch();
+	const location = useLocation();
+	const { pathname } = location;
+	const params = useParams();
+	// useEffect(()=>{
+	// 	if(loading==0){
+	// 		setStartImg(true)
+	// 	}
+	// 	if(loading===100){
+	// 		setStartImg(false)
+	// 	}
+	// },[])
 	return(
-	<div>
+	<div >
 		{isFetching?<Loading />:<div>
 			<PageNav />
 			<div className="profil">
@@ -62,12 +68,14 @@ function Profile() {
 					 <p className="text-center">{data.surname}</p> 
 				</div>
 			<div>
-				<Setting />
+			{ pathname.includes('settings') && <Setting />}
 			</div>
-
+			<div className="UserPage">
+				<UserPage  />
+			</div>
 			</div>
 		</div>}	
 	</div>
 	)
 }
-export default connect(r=>r)(Profile)
+export default Profile

@@ -35,14 +35,21 @@ function Photos(){
             <h1 className="text-center">Photos</h1>
             <div className="fileDiv">
                 <div className="file-input">
-                    <input type="file" id="file" class="file" onChange={(e)=>{
+                    <input type="file" id="file" className="file" onChange={(e)=>{
+                        alert("ssssssssssssssssssssssssss")
                         setShowPhoto(e.target.files[0])
                         setShowDiv(true)
                         dispatch(AddDiv())
                     }
                     }/>
-                    <label for="file">Select file</label>
+                    <label htmlfor="file">Select file</label>
                 </div>
+                  <input type="file" onChange={(e)=>{
+                        setShowPhoto(e.target.files[0])
+                        setShowDiv(true)
+                        dispatch(AddDiv())
+                    }
+                    }></input>
             </div>    
             {showDiv?<div className="addphoto">
                     <img src={showPhoto?URL.createObjectURL(showPhoto):""} className="showImg"/>

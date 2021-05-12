@@ -1,10 +1,13 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import {connect, useDispatch } from 'react-redux';
 import {useState} from "react";
 import {logIn} from "../../Redux/action/LoginAction";
 import SignNav from "../navs/SignNav";
-import { useHistory } from "react-router-dom"
-import {useSelector} from 'react-redux'
+import { useHistory } from "react-router-dom";
+import {useSelector} from 'react-redux';
 function Login(props){
+    const { profil } = props;
     const [users,setUser]=useState({Email:"",Password:"",login:false})
     const history = useHistory();
     const dispatch = useDispatch()
@@ -14,7 +17,7 @@ function Login(props){
                 <SignNav />
                <div className="LoginPage">
                 <div className="Login">
-                <p className="text-danger col-md-6">{props.profil.errorMsg}</p>
+                <p className="text-danger col-md-6">{profil.errorMsg}</p>
                     <p className="text-danger"></p>
                         <div className="form-grup">
                             <label>Email</label>

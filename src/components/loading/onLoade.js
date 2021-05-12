@@ -9,6 +9,6 @@ function Onloade(){
           setLoaded(false)
       }
     }
-    return loaded? <img onLoad={onLoad} src="http://beepeers.com/assets/images/commerces/default-image.jpg" /> :""
+    return loaded && <img onLoad={onLoad} src="http://beepeers.com/assets/images/commerces/default-image.jpg" />
 }
 export default Onloade

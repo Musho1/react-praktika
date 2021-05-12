@@ -60,7 +60,6 @@ export const getUserData = (uid) => {
          {
             db.ref(`/user/${uid}/avatar`).set(url)
             dispatch(ChangeAvatar(url))
-            console.log(url)
          })
         .catch((error)=>console.log(error))
     })

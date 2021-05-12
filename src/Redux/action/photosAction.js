@@ -17,8 +17,8 @@ const endSavingPhoto=()=>{
     }
 }
 export const AddDiv=()=>{
+    alert("ss")
     return {
-
         type:"AddDiv"
     }
 }

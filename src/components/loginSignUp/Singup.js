@@ -1,10 +1,10 @@
-import {useEffect, useState } from "react"
-import  firebase from 'firebase'
-import { connect} from "react-redux"
-import SignNav from "../navs/SignNav"
-import {db} from "../../firebase"
-import { useHistory } from "react-router-dom"
-function Singup(props){
+import { useState } from "react";
+import  firebase from 'firebase';
+import SignNav from "../navs/SignNav";
+import {db} from "../../firebase";
+import { useHistory } from "react-router-dom";
+
+function Singup(){
     const [send,setSend]=useState(true)
     const history = useHistory();
     const [user,setUser]=useState({
@@ -30,13 +30,11 @@ function Singup(props){
                 db.ref(`/user/${Response.user.uid}`).set({...sendUser, uid: Response.user.uid})
                  history.push("/")
             })
-            .catch(error=>{ setErrorMsg("Error")})
+            .catch(error=>{ setErrorMsg(error)})
         }
         setStart(true)
     }
     
-    useEffect(()=>{
-    },[])
     const emailValid=function(email){
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
@@ -99,7 +97,7 @@ function Singup(props){
             item.Age.errorBorderClass="error"
             item.Age.errorMsg="The Surname is not filled in`  "
         }
-        else if(i===4 && isNaN(temp)){
+        else if(i===4 && !isNaN(temp)){
             item.Age.errorBorderClass="error"
             item.Age.errorMsg="age shuld be Number"
         }
@@ -159,4 +157,4 @@ function Singup(props){
        </div> 
     )
 }
-export default connect(r=>r)(Singup)
+export default Singup
