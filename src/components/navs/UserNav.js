@@ -10,6 +10,7 @@ function UserNav(props) {
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link text-dark" to={`/userPhoto/${props.uid}`}>Photos</Link>
+                    
                 </li>
             </ul>
         </nav>)

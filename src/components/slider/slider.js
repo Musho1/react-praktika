@@ -4,16 +4,18 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./slider.scss";
 
-function Slider(active){
-    const {sliderPhotos}=useSelector(state=>(state.slider));
-    console.log(active)
-    console.log(sliderPhotos)
-    const {photos}=useSelector(state=>state.user.user.data)
-    const[index,setIndex]=useState(active.active);
-    console.log(index)
+function Slider(props){
+    const[index,setIndex]=useState(props.active);
+    
+    const[photos,setPhotos]=useState([])
+    Object.values(props.props).map((elm,i)=>{
+        if(photos.length<Object.values(props.props).length){
+            photos.push({photo:elm.url,title:elm.title})
+        }
+    })
     const next=(index)=>{
         let a=index
-        if(index===sliderPhotos.length-1){
+        if(index===photos.length-1){
             a=0
         }
         else{
@@ -24,7 +26,7 @@ function Slider(active){
     const prev=(index)=>{
         let a=index
         if(index===0){
-            a=(sliderPhotos.length-1)
+            a=(photos.length-1)
         }
         else{
         a=(index-1)
@@ -35,8 +37,8 @@ function Slider(active){
         <div className="slider">
             <div className="activimg">
                 <div>
-                    <img  className="active" src={sliderPhotos[index].photo} />
-                    <p className="title1">{sliderPhotos[index].title}</p>
+                    <img  className="active" src={photos[index].photo} />
+                    <p className="title1">{photos[index].title}</p>
                 </div>
                 <div className="NextPrev">
                     <button className="btn btn-sm btn-success" onClick={()=>(prev(index))}>Prev</button>
@@ -44,10 +46,10 @@ function Slider(active){
                 </div>
                 <div className="Listdiv">
                     {
-                        Object.values(photos).map((elm,i)=>{
+                        photos.map((elm,i)=>{
                             return (
                             <div key={i} className="listdiv">
-                                <img className="list" src={elm.url} onClick={()=>setIndex(i)} />
+                                <img className="list" src={elm.photo} onClick={()=>setIndex(i)} />
                             </div>)
                         })
                     }

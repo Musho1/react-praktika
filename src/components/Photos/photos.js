@@ -64,20 +64,11 @@ function Photos(){
                 </div>:""
             }
         <div className="ImgDiv" className="col-md-12 row">  
-            {  imges? 
-                Object.values(data.photos).map((elm,i)=>{
-                  if(!sliderPhotos.includes({photo:elm.url,title:elm.title})&& sliderPhotos.length< Object.values(data.photos).length){
-                        sliderPhotos.push({photo:elm.url,title:elm.title})
-                    }
-                    if(elm.title.length>=10){
-                        elm.title=elm.title.substr(0,10)+"..."
-                    }
-                    return <Card img={elm.url} title={elm.title} index={i}/>
-                }):""
+            {  imges &&
+                     <Card props={data.photos}/>
             }
         </div>     
         </div>
-        
     </div>)
 }
 export default Photos

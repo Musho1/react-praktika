@@ -21,6 +21,7 @@
     padding-top: 9px;
     object-fit: contain;
 }
+   
     .NameSurname{
     text-align: center;
     display: flex;
@@ -41,10 +42,14 @@
     .UserNav{
         width: 100%;
     }
-    .private{
-        object-fit: contain;
-    }
     .public{
-        width: 100%;
+        object-fit: contain;
+        
+        
     }
+    .PrivateImg{
+        width: 70px;
+        height: 70px;
+    }
+   
 }

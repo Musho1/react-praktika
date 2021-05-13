@@ -44,28 +44,36 @@ function Profile() {
 					</div>:""
 				}
 				     <div className="img">
-						 
-						 <Onloade/>
-						<img src={data.avatar?data.avatar:"https://html5css.ru/w3css/img_avatar3.png"} className="avatar"></img>
+						 {/* <Onloade/> */}
+					<div> 
+						<img src={data.avatar?data.avatar:"https://html5css.ru/w3css/img_avatar3.png"} className="avatar" />
 						<div className="file-input">
 						<input type="file" accept="image/x-png,image/jpeg"   id="file" className="file" onChange={(e)=>{
 							setImg(e.target.files[0])
 							setBtn(true)
 							dispatch(changeImg(e.target.files[0]))}}/>
+							
 						 <label for="file">+</label>
 					</div>
+					
+					</div>
+					
 					{btn?	
 					<div className="btn_div">
 						<button className="btn btn-success btn-sm" onClick={()=>{
 							setBtn(false)
 							dispatch(saveImg(img,data.uid,data,loading))}}>save</button>
+							<p className="NameSurname" className="text-center">{data.surname} {data.name}</p> 
 						<button className="btn btn-danger btn-sm" onClick={()=>{
 							setBtn(false)
 							dispatch(closeImg(avatar))
 						}}>Close</button>
+						<p className="NameSurname" className="text-center">{data.surname} {data.name}</p> 
 					</div>:""}
+					<div className="NameSurname">
+						<div className="text-center"><p className="text-center">{data.name} {data.surname}  </p><div className="Age"> {data.age}</div></div>
 					</div>
-					 <p className="text-center">{data.surname} {data.name}</p> 
+					</div>
 				</div>
 			<div>
 			{ pathname.includes('settings') && <Setting />}
