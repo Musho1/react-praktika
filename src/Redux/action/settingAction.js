@@ -14,11 +14,16 @@ const errorSetting=()=>{
         type:"errorUpdateProfile"
     }
 }
-export const Save=(data,uid)=>{
+export const  isPublic=(value)=>{
+    return{
+        type:"isPublic",
+        value:value
+    }
+}
+export const Save=(data,uid,Public)=>{
     return (dispatch)=>{
         dispatch(startSetting())
-        console.log(data, uid)
-    
+        data.public=Public
         db.ref(`/user/`).child(uid).update(data)
         .then(()=>{
             // if (data.password !== '' || data.password.length >= 6) {

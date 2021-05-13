@@ -1,3 +1,4 @@
 export default{
-    userPageData:{}
+    userPageData:[],
+    loadingUserPage:false,
 }

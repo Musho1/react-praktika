@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./setting.scss";
 import {Save} from "../../Redux/action/settingAction";
+import Switches from "../Switch/switch";
 function Setting(){
     const {data} = useSelector(state => state.user.user)
     const {uid} = useSelector(state => state.user.userAuth)
-    const [changeUser,setChangeUser]=useState({name:data.name,surname:data.surname,email:data.email,password:data.password,age:data.age,uid:uid})
+    const {Public} = useSelector(state => state.setting)
+    const [changeUser,setChangeUser]=useState({name:data.name,surname:data.surname,email:data.email,password:data.password,age:data.age,uid:uid,public:data.public})
     const {start} = useSelector(state => state.setting)
     const dispatch =useDispatch()
-
     return (
     <div className="SettingComponent">
         <div className="setting">
@@ -33,8 +34,9 @@ function Setting(){
                 <label for="ss">password</label>
                 <input value={changeUser.password}  className="form-control" onChange={(e)=>{setChangeUser({...changeUser,password:e.target.value})}} ></input>
             </div>
+            <Switches value="checkedA" inputProps={{ 'aria-label': 'Switch A' }}/>
             <div>
-                <button className="btn btn-su btn-success" onClick={()=>dispatch(Save(changeUser,uid))}>Save</button>
+                <button className="btn btn-su btn-success" onClick={()=>dispatch(Save(changeUser,uid,Public))}>Save</button>
             </div>
         </div>
     </div>)

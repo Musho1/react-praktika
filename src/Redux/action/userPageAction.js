@@ -1,7 +1,7 @@
 import {db} from '../../firebase';
 const startgetSearchUserPage=()=>{
     return{
-        type:"getSearchUserPage",
+        type:"startgetSearchUserPage",
     }
 }
 const endgetSearchUserPage=(data)=>{
@@ -12,7 +12,7 @@ const endgetSearchUserPage=(data)=>{
 }
 export const getSearchUserPage=(uid)=>{
     return (dispatch)=>{
-        dispatch(startgetSearchUserPage)
+        dispatch(startgetSearchUserPage())
         db.ref(`/user/${uid}`).on('value',function(user){
             dispatch(endgetSearchUserPage(user.val()))
         })

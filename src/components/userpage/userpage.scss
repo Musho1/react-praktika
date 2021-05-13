@@ -5,11 +5,46 @@
 }
 .userpage
 {
-   padding:50px 200px;
-   p{
-        text-align: center;    
-   }
    .age{
        margin-top: -15px;
    }
+   .userData{
+       width: 290px;
+       height: 94vh;
+   }
+   .userAvavtar{
+    width: 89%;
+    margin: auto ;
+    display: flex;
+    position: relative;
+    height: 249px;
+    padding-top: 9px;
+    object-fit: contain;
+}
+    .NameSurname{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    }
+    .follow{
+        display: flex;
+        margin: auto;
+    }
+    .Card{
+        margin:10px;
+        box-shadow: 0 0 5px 5px rgba(225, 225, 225, 0.9);
+    }
+    .UserUerNav{
+        display: flex;
+
+    }
+    .UserNav{
+        width: 100%;
+    }
+    .private{
+        object-fit: contain;
+    }
+    .public{
+        width: 100%;
+    }
 }

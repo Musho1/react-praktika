@@ -6,6 +6,8 @@ import {BrowserRouter, Switch, Route,Redirect} from "react-router-dom";
 import { useSelector } from "react-redux";
 import Photos from "../Photos/photos";
 import Setting from "../setting/setting";
+import UserPage from "../userpage/userPage";
+import UserPhotos from "../userpage/userPhotos";
 
 function Routs(){
     const {isActive}=useSelector(state=>{return(state.user.userAuth)})
@@ -16,9 +18,9 @@ function Routs(){
         else if(isActive && props.path=="/profile"){
             return(<Route path={props.path} component={props.component} />)
         }
-        else if(isActive && props.path=="/setting"){
-            return(<Route path={props.path} component={props.component} />)
-        }
+        // else if(isActive && props.path=="/setting"){
+        //     return(<Route path={props.path} component={props.component} />)
+        // }
         
         else {
             return <Redirect  to="/"/>
@@ -28,7 +30,8 @@ function Routs(){
     <BrowserRouter>
         <Switch>
                 <PrivateRoute path="/profile" component={Profile} />
-                <Route path="/user/:uid" component={Profile}/>
+                <Route path="/user/:uid" component={UserPage}/>
+                 <Route path="/userPhoto/:uid" component={UserPage}/>
                 <Route path="/photos" component={Photos} />
                 <Route path="/settings" component={Profile} />
                 <Route path="/singup" component={Singup} />

@@ -18,16 +18,7 @@
   justify-content: center;
   align-items: center;
 }
-.avatar{
-  width: 200px;
-  overflow: hidden;
 
-}
-.userPage{
-  width: 203px;
-  height: 94vh;
-  border:1px solid black
-}
 .profil-navs{
   display: flex;
   justify-content: space-between;

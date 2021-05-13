@@ -44,6 +44,7 @@ function Profile() {
 					</div>:""
 				}
 				     <div className="img">
+						 
 						 <Onloade/>
 						<img src={data.avatar?data.avatar:"https://html5css.ru/w3css/img_avatar3.png"} className="avatar"></img>
 						<div className="file-input">
@@ -64,14 +65,10 @@ function Profile() {
 						}}>Close</button>
 					</div>:""}
 					</div>
-					{<p className="text-center">{data.name}</p>}
-					 <p className="text-center">{data.surname}</p> 
+					 <p className="text-center">{data.surname} {data.name}</p> 
 				</div>
 			<div>
 			{ pathname.includes('settings') && <Setting />}
-			</div>
-			<div className="UserPage">
-				<UserPage  />
 			</div>
 			</div>
 		</div>}	

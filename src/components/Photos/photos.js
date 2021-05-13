@@ -5,6 +5,7 @@ import {SavePhoto} from "../../Redux/action/photosAction"
 import "./photos.scss"
 import Slider from "../slider/slider"
 import {AddDiv} from "../../Redux/action/photosAction"
+import Card from "../card/card"
 function Photos(){
     const dispatch=useDispatch()
     const [showPhoto,setShowPhoto]=useState("")
@@ -15,7 +16,6 @@ function Photos(){
     const [slider,setSlider]=useState(false)
     const [imges,setImages]=useState("")
     const [title,setTitle]=useState("")
-    const [active,setActive]=useState("")
     useEffect(()=>{
         if(data.photos==undefined){
             setImages(false)
@@ -30,13 +30,11 @@ function Photos(){
     })
     return(<div>
         <PageNav/>
-        {slider? <Slider active={active} /> :""}
         <div  className={slider?"opaciti":""} onClick={()=>setSlider(false)}>
             <h1 className="text-center">Photos</h1>
             <div className="fileDiv">
                 <div className="file-input">
                     <input type="file" id="file" className="file" onChange={(e)=>{
-                        alert("ssssssssssssssssssssssssss")
                         setShowPhoto(e.target.files[0])
                         setShowDiv(true)
                         dispatch(AddDiv())
@@ -67,7 +65,6 @@ function Photos(){
             }
         <div className="ImgDiv" className="col-md-12 row">  
             {  imges? 
-                
                 Object.values(data.photos).map((elm,i)=>{
                   if(!sliderPhotos.includes({photo:elm.url,title:elm.title})&& sliderPhotos.length< Object.values(data.photos).length){
                         sliderPhotos.push({photo:elm.url,title:elm.title})
@@ -75,15 +72,7 @@ function Photos(){
                     if(elm.title.length>=10){
                         elm.title=elm.title.substr(0,10)+"..."
                     }
-                    return <div key={i} className="Border"onClick={(e)=> {
-                                                    e.stopPropagation();
-                                                     setSlider(true)
-                                                     setActive(i)}} >
-                                <img   src={elm.url} className="images" />
-                                <div className="title">
-                                    <p >{elm.title}</p>
-                                </div>
-                            </div>
+                    return <Card img={elm.url} title={elm.title} index={i}/>
                 }):""
             }
         </div>     

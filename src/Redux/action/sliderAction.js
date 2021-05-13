@@ -1,6 +1,6 @@
-export const Next=(index)=>{
-    return {
-        type:"next",
-        value:index
+export const SliderActive=(value)=>{
+    return{
+        type:"sliderActive",
+        value:value
     }
 }

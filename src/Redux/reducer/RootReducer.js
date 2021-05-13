@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux'
+import UserPagePhotosReducer from './userPagePhotosReducer'
 import PhotosReducer from './photosReducer'
 import ProfilReducer from './profileReducer'
 import SearchReducer from './searchReducer'
@@ -14,5 +15,6 @@ export default combineReducers({
     setting:SettingReducer,
     search:SearchReducer,
     userPage:UserPageReducer,
+    userPagePhotos:UserPagePhotosReducer,
 })
 

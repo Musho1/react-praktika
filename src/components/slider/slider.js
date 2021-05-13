@@ -6,8 +6,11 @@ import "./slider.scss";
 
 function Slider(active){
     const {sliderPhotos}=useSelector(state=>(state.slider));
+    console.log(active)
+    console.log(sliderPhotos)
     const {photos}=useSelector(state=>state.user.user.data)
     const[index,setIndex]=useState(active.active);
+    console.log(index)
     const next=(index)=>{
         let a=index
         if(index===sliderPhotos.length-1){

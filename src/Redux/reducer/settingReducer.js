@@ -4,7 +4,6 @@ function SettingReducer(state=setting,action){
     let temp={...state}
 
     if(action.type=="startUpdateProfile"){
-        console.log(temp)
         temp.start=true
     }
     if(action.type=="endUpdateProfile"){
@@ -12,6 +11,10 @@ function SettingReducer(state=setting,action){
     }
     if(action.type=="SettingActive"){
         temp.active=action.value
+    }
+    if(action.type==="isPublic"){
+        console.log(action.value.checkedB)
+        temp.Public=action.value.checkedB
     }
     return (temp)
 }

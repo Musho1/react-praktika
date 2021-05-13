@@ -1,0 +1,24 @@
+.Border{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:30px;
+    width: 270px;
+    height: 370px;
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.images{
+    width: 260px;
+    height: 75%;
+    position: relative;
+    margin:auto;
+    margin-top: 5px;
+    
+}
+.title{
+    text-align: center;
+    padding: 10px;
+}
+.Border:hover {
+    box-shadow: 0 0 2px 3px rgba(0, 140, 186, 0.5);
+  }

@@ -49,11 +49,29 @@
     left: 0;
     right: 0;
 }  
+.Card{
+    margin:10px;
+    box-shadow: 0 0 5px 5px rgba(225, 225, 225, 0.9);
+    .NameSurname{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        }
+        .userAvavtar{
+            width: 150px;
+            height: 200px;
+            position: relative;
+        }
+}
 .img{
     width: 203px;
     position: relative;
-    height: 203px;
+    height: 220px;
+    margin:10px;
+    box-shadow: 0 0 5px 5px rgba(225, 225, 225, 0.9);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 img{
     width: 100%;

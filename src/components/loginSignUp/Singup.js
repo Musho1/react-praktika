@@ -15,7 +15,7 @@ function Singup(){
         Age:{value:"", errorMsg:'', errorBorder:true},
     })
     const [errorMsg,setErrorMsg]=useState("")
-    const [sendUser,setSendUser]=useState({name:"",surname:"",age:"",password:"",email:"", avatar: "",photos:[]})
+    const [sendUser,setSendUser]=useState({name:"",surname:"",age:"",password:"",email:"", avatar: "",photos:[],public:true})
     const [start,setStart]=useState(false)
     const Save=function(user) { 
         Object.values(user).map((elm,i)=>{
@@ -30,7 +30,7 @@ function Singup(){
                 db.ref(`/user/${Response.user.uid}`).set({...sendUser, uid: Response.user.uid})
                  history.push("/")
             })
-            .catch(error=>{ setErrorMsg(error)})
+            // .catch(error=>{ setErrorMsg(error)})
         }
         setStart(true)
     }
@@ -97,7 +97,7 @@ function Singup(){
             item.Age.errorBorderClass="error"
             item.Age.errorMsg="The Surname is not filled in`  "
         }
-        else if(i===4 && !isNaN(temp)){
+        else if(i===4 && isNaN(temp)){
             item.Age.errorBorderClass="error"
             item.Age.errorMsg="age shuld be Number"
         }
