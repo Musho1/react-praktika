@@ -15,7 +15,7 @@ function Singup(){
         Age:{value:"", errorMsg:'', errorBorder:true},
     })
     const [errorMsg,setErrorMsg]=useState("")
-    const [sendUser,setSendUser]=useState({name:"",surname:"",age:"",password:"",email:"", avatar: "",photos:[],public:true})
+    const [sendUser,setSendUser]=useState({name:"",surname:"",age:"",password:"",email:"", avatar: "", photos:[], friends:[''],public:true})
     const [start,setStart]=useState(false)
     const Save=function(user) { 
         Object.values(user).map((elm,i)=>{

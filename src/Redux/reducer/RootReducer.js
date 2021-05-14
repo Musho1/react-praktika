@@ -7,6 +7,7 @@ import SettingReducer from './settingReducer'
 import SliderReducer from './sliderReducer'
 import UserPageReducer from './userPageReducer'
 import UserReducer from "./userReduser"
+import FriendsReducer from './friendsEducer'
 export default combineReducers({
     profil:ProfilReducer,
     user:UserReducer,
@@ -16,5 +17,5 @@ export default combineReducers({
     search:SearchReducer,
     userPage:UserPageReducer,
     userPagePhotos:UserPagePhotosReducer,
+    friends:FriendsReducer,
 })
-

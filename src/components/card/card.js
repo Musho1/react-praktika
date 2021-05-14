@@ -4,21 +4,10 @@ import Slider from "../slider/slider";
 function Card(props){
     const [slider,setSlider]=useState(false)
     const [active,setActive]=useState('')
-    // return(<div>
-    //     {slider? <Slider active={active}/> :""}
-    //      <div  className="Border" onClick={(e)=>{
-    //          e.stopPropagation();
-    //          setSlider(true)
-    //          setActive(props.index)}} 
-    //     >
-    //                             <img   src={props.img} className="images" />
-    //                             <div className="title">
-    //                                 <p >{props.title}</p>
-    //                             </div>
-    //                         </div>
-    // </div>)
-    return (<div className="col-md-12 row">
-        {Object.values(props.props).map((elm,i)=>{
+    console.log(props)
+        if(props.photos!==undefined){
+        return (<div className="col-md-12 row">
+        {Object.values(props.photos).map((elm,i)=>{
             return (
             <div key={i} className="Border" onClick={(e)=>{
                 e.stopPropagation()
@@ -31,8 +20,14 @@ function Card(props){
                 </div>
             </div>)
         })}
-        {slider && <Slider active={active} props={props.props} />}
+        {slider && <Slider active={active} props={props.photos}/>}
+        {slider && <button className="CloseSlider" onClick={()=>{setSlider(false)
+        alert(false)}}>x</button>}
     </div>)
+}
+else{
+    return <h1>No Photos</h1>
+}
 }
 
 export default Card

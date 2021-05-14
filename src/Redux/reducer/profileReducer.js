@@ -28,7 +28,6 @@ function ProfilReducer(state=user,action){
         default:
             break
     }
-
     return temp
 }
 export default ProfilReducer

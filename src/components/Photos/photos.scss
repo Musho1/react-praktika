@@ -15,9 +15,6 @@
     display: flex;
     justify-content: space-around;
 }
-.ImgDiv{
-    display: flex;
-}
 .AddPhoto{
     width: 200px;
 }
@@ -61,14 +58,16 @@
 .opaciti{
     opacity: 0.1;
 }
+
 .fileDiv{
-.file {
+.file2 {
     opacity: 0;
     width: 0.1px;
     height: 0.1px;
     position: absolute;
   }
-  .file-input label {
+  
+  .file-input2 label {
     display: block;
     position: relative;
     width: 150px;

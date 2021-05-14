@@ -8,6 +8,7 @@ import Photos from "../Photos/photos";
 import Setting from "../setting/setting";
 import UserPage from "../userpage/userPage";
 import UserPhotos from "../userpage/userPhotos";
+import UserPagePhoto from "../userpage/UserPagePhoto";
 
 function Routs(){
     const {isActive}=useSelector(state=>{return(state.user.userAuth)})
@@ -29,9 +30,9 @@ function Routs(){
  return (
     <BrowserRouter>
         <Switch>
-                <PrivateRoute path="/profile" component={Profile} />
+                <Route path="/user/:uid/photo" component={UserPagePhoto}/>
                 <Route path="/user/:uid" component={UserPage}/>
-                 <Route path="/userPhoto/:uid" component={UserPage}/>
+                <PrivateRoute path="/profile" component={Profile} />
                 <Route path="/photos" component={Photos} />
                 <Route path="/settings" component={Profile} />
                 <Route path="/singup" component={Singup} />

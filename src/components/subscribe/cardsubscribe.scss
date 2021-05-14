@@ -1,0 +1,29 @@
+.postblock{
+    width: 700px;
+    height: 400px;
+    box-shadow: 0 0 5px 5px rgba(225, 225, 225, 0.9);
+    // box-shadow: 0 0 2px 2px rgba(0, 140, 186, 0.5);
+    padding:15px;
+    margin-bottom: 25px;
+    .PostUserData{
+        display: flex;
+    }
+    .postdiv{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .PostAvatar{
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+    }
+    .post{
+        width: 450px;
+        height: 300px;
+        object-fit: contain;
+    }
+    
+}

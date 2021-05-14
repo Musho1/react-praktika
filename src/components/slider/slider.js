@@ -6,13 +6,14 @@ import "./slider.scss";
 
 function Slider(props){
     const[index,setIndex]=useState(props.active);
-    
+    console.log(props)
     const[photos,setPhotos]=useState([])
     Object.values(props.props).map((elm,i)=>{
         if(photos.length<Object.values(props.props).length){
             photos.push({photo:elm.url,title:elm.title})
         }
     })
+    
     const next=(index)=>{
         let a=index
         if(index===photos.length-1){

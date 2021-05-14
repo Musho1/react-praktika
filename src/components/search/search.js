@@ -14,6 +14,7 @@ function Search(){
             <div className="box">
                 <div className="container-4">
                     <input type="search" id="search"  placeholder="Search..." onChange={(e)=>{
+                       
                         dispatch(search(e.target.value))
                         if(e.target.value.length>=2){
                             setIsSearch(true)
@@ -22,16 +23,15 @@ function Search(){
                             setIsSearch(false)
                         }
                     }
-                }/>
+                }
+                    
+                />
                 </div>
         </div> 
         {isSearch &&
             <div className="SearchBlock" >
                 {
                     Object.values(searchUser).map((elm,i)=>{
-                        if(elm.avatar===""){
-
-                        }
                         return (
                             <div key={i} className="SerchUser" onClick={() => history.push(`/user/${elm.uid}`)} >
                                 <div> 

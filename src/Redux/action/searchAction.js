@@ -25,7 +25,7 @@ export const search=(text)=>{
     return (dispatch)=>{
         if(text.length>=2){
         dispatch(startSearchUser())
-        db.ref("user").orderByChild("age").startAt("").on('value',function(searchUser){
+        db.ref("user").orderByChild("name").startAt("").on('value',function(searchUser){
             if(searchUser.val()===null){
                 console.log('Email is not present');
             }

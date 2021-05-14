@@ -4,7 +4,6 @@ import {useDispatch } from 'react-redux';
 import {LogOut } from "../../Redux/action/LoginAction";
 import { getUserData } from "../../Redux/action/userAction";
 import {useSelector} from 'react-redux';
-import { SettingActive } from '../../Redux/action/settingAction';
 import Search from '../search/search';
 function PageNav(){
     const { uid} = useSelector(state => (state.user.userAuth))
