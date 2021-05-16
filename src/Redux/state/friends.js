@@ -1,3 +1,4 @@
 export default {
-    friendsPost:[]
+    friendsPost:[],
+    friends:[]
 }

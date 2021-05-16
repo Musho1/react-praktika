@@ -48,6 +48,12 @@
     left: 0;
     right: 0;
 }  
+.children{
+    margin: auto;
+    overflow-y: scroll;
+    height: 94vh;
+    padding: 10px;
+}
 .Subscribe{
     width: 90%;
     padding: 10px;

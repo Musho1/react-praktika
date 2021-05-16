@@ -11,6 +11,7 @@ function Setting(){
     const {start} = useSelector(state => state.setting)
     const dispatch =useDispatch()
     return (
+        
     <div className="SettingComponent">
         <div className="setting">
             {start?<div className="spinner-border text-danger" role="status"></div>:""}

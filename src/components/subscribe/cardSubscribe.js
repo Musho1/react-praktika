@@ -1,7 +1,7 @@
 import "./cardsubscribe.scss";
 import { useHistory } from 'react-router-dom';
+import Profile from "../loginSignUp/Profile";
 function CardSubscribe (props){
-    console.log(props)
     const history=useHistory()
     return (<div className="postblock">
         <div className="PostUserData"> 

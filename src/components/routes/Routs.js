@@ -9,6 +9,9 @@ import Setting from "../setting/setting";
 import UserPage from "../userpage/userPage";
 import UserPhotos from "../userpage/userPhotos";
 import UserPagePhoto from "../userpage/UserPagePhoto";
+import Subscribe from "../subscribe/subscribe";
+import Friends from "../friends/friends";
+
 
 function Routs(){
     const {isActive}=useSelector(state=>{return(state.user.userAuth)})
@@ -32,9 +35,10 @@ function Routs(){
         <Switch>
                 <Route path="/user/:uid/photo" component={UserPagePhoto}/>
                 <Route path="/user/:uid" component={UserPage}/>
-                <PrivateRoute path="/profile" component={Profile} />
+                <PrivateRoute path="/profile" component={Subscribe} />
                 <Route path="/photos" component={Photos} />
                 <Route path="/settings" component={Profile} />
+                <Route path="/friends" component={Friends} />
                 <Route path="/singup" component={Singup} />
                 <Route path="/" component={Login} >
                     {isActive && <Redirect  to="/profile"/>}

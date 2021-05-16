@@ -5,13 +5,11 @@ import UserPhotos from "./userPhotos";
 import { useParams } from 'react-router-dom';
 import { getSearchUserPage } from "../../Redux/action/userPageAction";
 
-
 const UserPagePhoto = () => {
     const params = useParams();
     const { uid } = params;
     const{userPageData}= useSelector(state=>state.userPage);
     const dispatch = useDispatch();
-    console.log(userPageData)
     useEffect(()=>{
         dispatch(getSearchUserPage(uid))
     },[uid])

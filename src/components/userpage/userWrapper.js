@@ -14,7 +14,6 @@ const UserWrapper = (props) => {
     useEffect(()=>{
         if(Object.keys(data).length !== 0 ){
         Object.values(data.friends).map((elm,i)=>{
-            console.log("ss")
             if(elm.uid===userPageData.uid &&elm.request===true ){
                 setfreinds(true)
             }

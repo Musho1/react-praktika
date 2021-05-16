@@ -23,6 +23,9 @@ function PageNav(){
                 <li className="nav-item">
                     <Link className="nav-link text-white text-right " to="/photos">Photos</Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link text-white text-right " to="/friends">Friends</Link>
+                </li>
             </ul>
             <ul className="navbar-nav px-4" >
                 <li className="nav-item">

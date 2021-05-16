@@ -12,7 +12,7 @@ import { useLocation} from 'react-router-dom';
 import Subscribe from '../subscribe/subscribe';
 
 
-function Profile() {
+function Profile(props) {
 	const {data,isFetching} = useSelector(state => state.user.user)
 	const {loading}=useSelector(state=>state.user)
 	const {avatar}=useSelector(state=>(state.user))
@@ -60,9 +60,10 @@ function Profile() {
 			<div>
 				{ pathname.includes('settings') && <Setting />}
 			</div>
-			<div className="Subscribe">
+			<div className="children">{props.children}</div>
+			{/* <div className="Subscribe">
 				<Subscribe data={data}/>
-			</div>
+			</div> */}
 			</div>
 		</div>}	
 	</div>
