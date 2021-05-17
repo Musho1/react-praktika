@@ -7,12 +7,11 @@ import Loading from './components/loading/Loading';
 
 function App() {
 	const dispatch = useDispatch();
-    const { isRequesting }=useSelector(state=>{return(state.user.userAuth)})
-
+    const { isRequesting }=useSelector(state=>(state.user.userAuth))
 
 	useEffect(() => {
 		dispatch(isActiv());
-	}, []);
+	},[]);
 
 	return (
 		<>

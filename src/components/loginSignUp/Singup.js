@@ -15,7 +15,7 @@ function Singup(){
         Age:{value:"", errorMsg:'', errorBorder:true},
     })
     const [errorMsg,setErrorMsg]=useState("")
-    const [sendUser,setSendUser]=useState({name:"",surname:"",age:"",password:"",email:"", avatar: "", photos:[], friends:[''],public:true})
+    const [sendUser,setSendUser]=useState({name:"",surname:"",age:"",password:"",email:"", avatar: "https://firebasestorage.googleapis.com/v0/b/praktika-8350c.appspot.com/o/images%2FBYidAmlHTcdyOOTm8SZPfGUaAj93?alt=media&token=e0487152-fd76-424a-ab68-94b4270f90e2", photos:[], friends:[''],public:true})
     const [start,setStart]=useState(false)
     const Save=function(user) { 
         Object.values(user).map((elm,i)=>{

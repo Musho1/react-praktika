@@ -49,12 +49,12 @@ function UserReducer(state=user, action) {
             ...temp.user,
             isFetching: false,
             data: action.data,
+            
         }
 
     }
     if(action.type==="endChangeAvatar"){
         temp.user.data.Avatar=action.value
-        console.log(action.value)
     }
     if(action.type==="lastAvatar"){
         temp.user.data.Avatar=action.value
@@ -68,7 +68,6 @@ function UserReducer(state=user, action) {
     }
     if(action.type==="lastAvatar"){
 
-        console.log(action.value)
         temp.user.data.avatar=action.value
     }
     
@@ -81,8 +80,6 @@ function UserReducer(state=user, action) {
     if(action.type==="LoadingAvatar"){
         temp.loading=action.value
     }
-
-
     return temp
 }
 export default UserReducer

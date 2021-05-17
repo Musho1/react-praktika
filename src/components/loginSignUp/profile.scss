@@ -51,22 +51,22 @@
 .children{
     margin: auto;
     overflow-y: scroll;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 94vh;
     padding: 10px;
+    box-shadow: 0 0 5px 5px rgba(225, 225, 225, 0.9);
+    padding-top: 20px;
 }
-.Subscribe{
-    width: 90%;
-    padding: 10px;
-    overflow-y: scroll;
-    height: 94vh;
-}
+
 .img{
     width: 250px;
     position: relative;
     height: 350px;
-    margin: 10px;
+     margin:0 10px ;
     box-shadow: 0 0 5px 5px rgba(225, 225, 225, 0.9);
-    // box-shadow: 0 0 2px 2px rgba(0, 140, 186, 0.5);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -90,4 +90,21 @@
 }
 .profil{
     display: flex;
+}
+.googlebtn{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    opacity: 0.9;
+}
+.googlebtn:hover{
+    opacity: 1;
+}
+.loginBAck{
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20190826/pngtree-dark-abstract-background-with-overlap-layers-image_305025.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Login{
+    background-color: white;
 }

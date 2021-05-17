@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 function UserNav(props) {
     const params = useParams();
     const { uid } = params;
-    console.log(params, 's');
     return(
         <nav className="navbar navbar-expand-sm bg-white navBorder">
             <ul className="navbar-nav">

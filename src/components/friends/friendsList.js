@@ -1,9 +1,11 @@
-import { useEffect } from "react"
+import { useHistory } from "react-router";
 import "./friends.scss";
 function FriendsList(props){
-    console.log(props.friend+"888888888888")
+    const history=useHistory()
     return (
-    <div className="friends">
+    <div className="friends" onClick={()=>{
+        history.push(`user/${props.friend.uid}`)
+    }}>
         <img className="friendsImg" src={props.friend.avatar} />
         <p>{props.friend.name} {props.friend.surname}</p>
     </div>)

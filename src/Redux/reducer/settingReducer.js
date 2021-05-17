@@ -3,13 +3,13 @@ import setting from "../state/setting";
 function SettingReducer(state=setting,action){
     let temp={...state}
 
-    if(action.type=="startUpdateProfile"){
+    if(action.type==="startUpdateProfile"){
         temp.start=true
     }
-    if(action.type=="endUpdateProfile"){
+    if(action.type==="endUpdateProfile"){
         temp.start=false
     }
-    if(action.type=="SettingActive"){
+    if(action.type==="SettingActive"){
         temp.active=action.value
     }
     if(action.type==="isPublic"){

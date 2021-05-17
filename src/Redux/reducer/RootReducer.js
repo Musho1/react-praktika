@@ -8,6 +8,7 @@ import SliderReducer from './sliderReducer'
 import UserPageReducer from './userPageReducer'
 import UserReducer from "./userReduser"
 import FriendsReducer from './friendsEducer'
+import GoogleLoginReducer from './GoogleLoginReducer'
 export default combineReducers({
     profil:ProfilReducer,
     user:UserReducer,
@@ -18,4 +19,5 @@ export default combineReducers({
     userPage:UserPageReducer,
     userPagePhotos:UserPagePhotosReducer,
     friends:FriendsReducer,
+    googleLogin:GoogleLoginReducer,
 })

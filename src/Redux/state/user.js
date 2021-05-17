@@ -14,5 +14,4 @@ export default{
     startImg:false,
     loading:-1,
     avatar:"",
-    isLod:false,
 }

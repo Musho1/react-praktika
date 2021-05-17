@@ -1,31 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Login from '../loginSignUp/Login';
 import Singup from "../loginSignUp/Singup";
 import Profile from '../loginSignUp/Profile';
 import {BrowserRouter, Switch, Route,Redirect} from "react-router-dom";
 import { useSelector } from "react-redux";
 import Photos from "../Photos/photos";
-import Setting from "../setting/setting";
 import UserPage from "../userpage/userPage";
-import UserPhotos from "../userpage/userPhotos";
 import UserPagePhoto from "../userpage/UserPagePhoto";
 import Subscribe from "../subscribe/subscribe";
 import Friends from "../friends/friends";
-
+import firebase from 'firebase'
 
 function Routs(){
     const {isActive}=useSelector(state=>{return(state.user.userAuth)})
     const PrivateRoute=(props) => {
-        if(isActive && props.path=="/photos"){
+        if(isActive && props.path==="/photos"){
             return(<Route path={props.path} component={props.component} />)
         }
-        else if(isActive && props.path=="/profile"){
+        else if(isActive && props.path==="/profile"){
             return(<Route path={props.path} component={props.component} />)
         }
-        // else if(isActive && props.path=="/setting"){
-        //     return(<Route path={props.path} component={props.component} />)
-        // }
-        
         else {
             return <Redirect  to="/"/>
         }
@@ -41,7 +35,8 @@ function Routs(){
                 <Route path="/friends" component={Friends} />
                 <Route path="/singup" component={Singup} />
                 <Route path="/" component={Login} >
-                    {isActive && <Redirect  to="/profile"/>}
+                    {isActive && firebase.auth().currentUser.emailVerified &&                     
+                    <Redirect  to="/profile"/>}
                 </Route>
                 
         </Switch>

@@ -24,33 +24,45 @@ const startSingOut=()=>{
         type:"start"
     }
 }
-const successEnd=()=>{
+const endLogOut=()=>{
     return {
-        type:"success"
+        type:"endLogOut"
     }
 }
 
 export const LogOut = ()=> {
-    return function (dispatch) {
+    return  (dispatch)=> {
         dispatch(startSingOut)
         firebase.auth().signOut()
             .then(()=>{
-                 dispatch(successEnd)
+                dispatch(errorLogIn(""))
+                 dispatch(endLogOut)
             })
             .catch((error) =>{console.log(error)})
     }
 }
 
 
-export const logIn = (email, password, history,photo)=> {
+export const logIn = (email, password, history)=> {
     return function (dispatch) {
         dispatch(startLogIn());
         firebase.auth().signInWithEmailAndPassword(email,password)
             .then(user=>{
-                dispatch(successLogIn(user))
-                user=(user.user.value)
-                history.push("/profile");
+                    dispatch(successLogIn(user))
+                    user=(user.user.value)
+                    history.push("/profile");
+                    if(firebase.auth().currentUser){
+                        if(!firebase.auth().currentUser.emailVerified){
+                            firebase.auth().currentUser.sendEmailVerification()
+                            .then(()=>{
+                                console.log("send email cod")
+                            })  
+                            dispatch(errorLogIn("ss")) 
+                        }
+                    }
             })
-            .catch((error) => dispatch(errorLogIn(error)))
+            .catch((error) =>{   
+                dispatch(errorLogIn("The email address is badly formatted"))
+            })
     }
 }

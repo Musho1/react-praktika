@@ -10,7 +10,6 @@ function Photos(){
     const [showPhoto,setShowPhoto]=useState("")
     const {addDiv}=useSelector(state=>state.photo)
     const {data} = useSelector(state => state.user.user)
-    const {sliderPhotos}=useSelector(state=>(state.slider))
     const [showDiv,setShowDiv]=useState(false)
     const [slider,setSlider]=useState(false)
     const [imges,setImages]=useState("")

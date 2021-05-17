@@ -9,20 +9,22 @@ function ProfilReducer(state=user,action){
                 isActive: true,
             }
             temp.start=false
-            console.log(user)
             break
         }
         case "errorLogIn":{
-            temp.isActiv=false
-            temp.errorMsg="The email address or password is badly formatted"
+            temp.userAuth.isActiv=false
+            temp.errorMsg=action.error
             temp.start=false
             break
         }
         case "startLogIn":{
             temp.start=true;
         }
-        case "successEnd":{
-            temp.userAuth.isActive=false
+        case "startSingOut":{
+            temp.userAuth = {
+                ...temp.userAuth,
+                isActive: false,
+            }
             Redirect("/")
         }
         default:

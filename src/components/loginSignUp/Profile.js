@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import PageNav from '../navs/PageNav';
 import {useSelector} from 'react-redux'
 import Loading from '../loading/Loading';
@@ -9,9 +9,6 @@ import {closeImg} from "../../Redux/action/userAction"
 import "./profile.scss" 
 import Setting from '../setting/setting';
 import { useLocation} from 'react-router-dom';
-import Subscribe from '../subscribe/subscribe';
-
-
 function Profile(props) {
 	const {data,isFetching} = useSelector(state => state.user.user)
 	const {loading}=useSelector(state=>state.user)
@@ -21,6 +18,7 @@ function Profile(props) {
 	const dispatch=useDispatch();
 	const location = useLocation();
 	const { pathname } = location;
+
 	return(
 	<div >
 		{isFetching?<Loading />:<div>
@@ -36,7 +34,7 @@ function Profile(props) {
 							setBtn(true)
 							dispatch(changeImg(e.target.files[0]))}}/>
 							
-						 <label for="file">+</label>
+						 <label htmlFor="file">+</label>
 					</div>
 					
 					</div>
@@ -60,10 +58,7 @@ function Profile(props) {
 			<div>
 				{ pathname.includes('settings') && <Setting />}
 			</div>
-			<div className="children">{props.children}</div>
-			{/* <div className="Subscribe">
-				<Subscribe data={data}/>
-			</div> */}
+			<div className={props.className}>{props.children}</div>
 			</div>
 		</div>}	
 	</div>

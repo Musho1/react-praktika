@@ -1,8 +1,7 @@
-import {db, firebase} from '../../firebase';
+import { db } from '../../firebase';
 export const  getfriendsdata=(data)=>{
     let friends=[]
     let userfriends=[]
-    console.log( Object.keys(data).length)
     return (dispatch)=>{
         if(data!==undefined && Object.keys(data).length!==0 &&data!==null){
             Object.values(data.friends).map((elm,i)=>{
