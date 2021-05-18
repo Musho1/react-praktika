@@ -1,8 +1,6 @@
 import "./cardsubscribe.scss";
-import { useHistory } from 'react-router-dom';
-import Profile from "../loginSignUp/Profile";
+
 function CardSubscribe (props){
-    const history=useHistory()
     return (<div className="postblock">
         <div className="PostUserData"> 
             <img className="PostAvatar" src={props.post.avatar}></img>

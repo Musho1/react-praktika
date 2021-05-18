@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import PropTypes from 'prop-types';
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import "./slider.scss";
 
 function Slider(props){
     const[index,setIndex]=useState(props.active);
-    console.log(props)
     const[photos,setPhotos]=useState([])
     Object.values(props.props).map((elm,i)=>{
         if(photos.length<Object.values(props.props).length){

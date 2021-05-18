@@ -9,11 +9,13 @@ function GooglePasdsword(){
     const dispatch=useDispatch()
     const [mail,setMail]=useState("")
     return (<div className="form-group changePassword"  >
-        <label htmlFor="Email addres">Email</label>
+        <label htmlFor="Email addres" >Email</label>
         <input className="form-control" value={mail} onChange={(e)=>setMail(e.target.value)} />
         <br></br>
-        <button className="btn btn-sm btn-success"  onClick={()=>dispatch(GetPAsswordWhiteGoogle(mail,history))} >Login</button>
-        <button className="btn btn-sm btn-danger" onClick={()=>dispatch(endGetPAsswordWhiteGoogle())}>Cancle</button>
+        <div className="changePasswordbtn">
+            <button className="btn btn-sm btn-success"  onClick={()=>dispatch(GetPAsswordWhiteGoogle(mail,history))} >Change</button>
+            <button className="btn btn-sm btn-danger" onClick={()=>dispatch(endGetPAsswordWhiteGoogle())}>Cancle</button>
+        </div>
     </div>)
 }
 export default GooglePasdsword

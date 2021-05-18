@@ -1,5 +1,4 @@
 import firebase from 'firebase'
-import { getStorage, ref } from "firebase/storage";
 var firebaseConfig = {
   apiKey: "AIzaSyA48ncocujbiJx0kjMBeY58KHvEaZWqXxk",
   authDomain: "praktika-8350c.firebaseapp.com",

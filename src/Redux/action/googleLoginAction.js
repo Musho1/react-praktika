@@ -1,5 +1,4 @@
 import firebase from 'firebase'
-import { useHistory } from 'react-router';
 
 export const singinwhiteGoogle=()=>{
     return (dispatch)=>{
@@ -7,14 +6,14 @@ export const singinwhiteGoogle=()=>{
           firebase.auth()
             .signInWithPopup(provider)
             .then((result) => {
-                var credential = result.credential.accessToken;
-                var user = result.user;
+                let  credential = result.credential.accessToken;
+                let user = result.user;
         })
             .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                var email = error.email;
-                var credential = error.credential;
+                let errorCode = error.code;
+                let  errorMessage = error.message;
+                let email = error.email;
+                let credential = error.credential;
               });
     }
 }
